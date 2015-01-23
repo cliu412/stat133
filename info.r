@@ -1,0 +1,5 @@
+name = "Christopher Liu"
+SID = "25079376"
+email = "cliu412@berkeley.edu"
+github_name = "cliu412"
+status = "enrolled"

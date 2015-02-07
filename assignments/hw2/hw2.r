@@ -51,7 +51,7 @@
 # the hw3 directory in the file WR1500MeterMen.rda.
 
 # load the data
-
+load("C:/Users/Christopher/src/stat133/assignments/hw2/WR1500MeterMen.rda")
 # The name of the object loaded is wr1500m
 # The time (in the column "times") in these data are recorded in seconds, 
 # and they are seconds over 3 minutes. 
@@ -59,18 +59,18 @@
 
 # Q1a. How many world records does this data frame contain?
 
-# n.wr <- your code here
+n.wr<-nrow(wr1500m)
 
 # Q1b. Use R commands to find out who currently holds the world
 # record in the men's 1500 meter.
  
-# wr.name <- your code here
+wr.name <- as.character(wr1500m[,4][[51]])
 
 
 # Let's look at the relationship between date and time.
 # Q1c. What type of variable (numeric (continuous or discrete), nominal ordinal)
 # are year and times? (no need to save the output, just look at it)
-
+Continuous, the year and times are not confined to a certain number.
 
 # When we are examining a variable to see how it changes in time,
 # we typically make a line plot, with time on the x-axes and 
@@ -85,9 +85,9 @@
 # times_sec <- your code here
 # wr1500m <- your code here
 # plot( your code here )
-
-
-
+times_sec<- wr1500m$times + 180
+wr1500m$times_sec<-wr1500m$times + 180
+plot(wr1500m$year,wr1500m$times_sec)
 # Q2b. Redo the plot using a date that incorporates the month as 
 # well as the year. For example, in Sep 1904 the world record 
 # was broken by James Lightbody. Use a date of 1904.75 for this
@@ -100,7 +100,9 @@
 # new_year <- your code here
 # wr1500m <- your code here
 # plot( your code here )
-
+wr1500m[is.na(wr1500m)]<-6
+new_year<-wr1500m$year+(wr1500m$month/12)
+wr1500m$new_year<-new_year
 
 # Q3. The current world record was set in 1998. If we want to
 # show that this record still stands in 2014, we could add a 
@@ -113,7 +115,9 @@
 # wr_1998 <- your code here
 # plot( your code here )
 # lines( your code here )
-
+wr_1998<-26.00+180
+plot(wr1500m$year,wr1500m$times_sec,xlim=range(1892,2014),type="s")
+lines(x=c(1998+7/12,2014),y=rep(wr_1998,times=length(c(1998+7/12,2014))),type="l")
 
 # Q4. There are two times where the record stood for several
 # years - in 1944 and 1998. Let's make it easier to see these
@@ -132,6 +136,7 @@
 # abline( your code here )
 # text( your code here )
 # text( your code here )
+abline(v=1944)
 
 
 # Q5. Now we are ready to add other contextual information.

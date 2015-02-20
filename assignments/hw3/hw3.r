@@ -310,6 +310,7 @@ load("C:/Users/Christopher/src/stat133/assignments/hw3/rainfallCO.rda")
 # Create a variable 
 # max.rain : a vector of length 5 with the maximum rainfall at each station
 m<-matrix(c(rain))
+n<-matrix(c(day))
 max.rain<-sapply(m,max,simplify=T)
 # Create a variable 
 # mean.rain : a vector of length 5 with the average rainfall at each station
@@ -320,5 +321,4 @@ mean.rain<-sapply(m,mean,simplify=T)
 sd.rain<-sapply(m,sd,simplify=T)
 # Create a variable 
 # n1989.rain : a vector of length 5 with the number of measurements at each station in the year 1989 (use [day])
-n1989.rain<-sapply(m,length,simplify=T)
-
+n1989.rain<-sapply(day,function(x)length(x[1989<=x&x<1990]))

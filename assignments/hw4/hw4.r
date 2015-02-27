@@ -159,7 +159,7 @@ samplingVarEst <- function(x, type="bootstrap",B=1000){
     sampling.sigma.est<- jackknifeVarEst(x)
     return(sampling.sigma.est)
   }
-  if (type=="bootstrap"||type==""){
+  if (type=="bootstrap"){
     sampling.sigma.est<- bootstrapVarEst(x,B) 
     return(sampling.sigma.est)
   }

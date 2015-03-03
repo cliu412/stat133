@@ -1,0 +1,23 @@
+{
+    "email": "cliu412@berkeley.edu", 
+    "github_name": "cliu412", 
+    "grades": {
+        "hw1": {
+            "note": "", 
+            "hash": "57cbe6e8da6e601138a6a2f5a472858afc67c1b0", 
+            "earned": 0, 
+            "possible": 20, 
+            "penalty": 0, 
+            "parts": {
+                "hw1": {
+                    "possible": 20, 
+                    "earned": 0
+                }
+            }
+        }
+    }, 
+    "login": "cliu412", 
+    "name": "Christopher Liu", 
+    "status": "enrolled", 
+    "url": "git@github.com:cliu412/stat133.git"
+}

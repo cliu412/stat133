@@ -97,6 +97,6 @@ bmi<-family$weight/(family$height^2)*703
 # Create a new data frame
 # << family2 >> : family with an added column of BMI, with column name bmi
 family$bmi<-(family$weight/(family$height)^2)*703
-
+family2<-family
 
 ##################################################################################

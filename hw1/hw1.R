@@ -1,4 +1,4 @@
-fm##################################################################################
+##################################################################################
 ### Stat 133 Spring 2015
 ### Homework 1
 ### Due Sun Feb 1st by midnight
@@ -86,7 +86,7 @@ family.young<-subset(family,age<40)
 
 # Create a new data frame 
 # << family.30y68i >> : a data frame, subset of family, with only people *over* 30, *shorter* than 68 in
-family.30y68i<-subset(family,height<68%age>30)
+family.30y68i<-subset(family,height<68,age>30)
 
 # Formula for BMI : BMI = (weight in lbs) / (height in in)^2 * 703
 # Note: the dataframe has weight in lbs and height in in as required.
@@ -96,7 +96,8 @@ bmi<-family$weight/(family$height^2)*703
 
 # Create a new data frame
 # << family2 >> : family with an added column of BMI, with column name bmi
-family$bmi<-(family$weight/(family$hiehgt)^2)*703
 
-
+#family$bmi<-(family$weight/(family$hiehgt)^2)*703
+#There is a typo on this line it should height not hiehgt
+#To avoid this run source on your hw before submitting it.
 ##################################################################################

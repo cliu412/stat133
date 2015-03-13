@@ -57,4 +57,3 @@ plot(SO2012Ctry$Female+SO2012Ctry$Male,female.prop,pch=19,
      main="Proportion of female athletes vs Total # athletes",
      xlab="Total # athletes",ylab="Proportion of female athletes")
 abline(h=0.5,col="green")
-points()

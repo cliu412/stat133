@@ -25,6 +25,6 @@ bml.run<-function (r,c,p,d,n){
       }
     }
   }
-  return (list(c(results)))
-  return ()
+  return (list(c(results), mean(results)))
+  
 }

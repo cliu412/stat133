@@ -16,38 +16,62 @@ ERROR:root:... Expecting: True
 ERROR:root:... But got:   Traceback error
 ERROR:root:Got exception:
 Traceback (most recent call last):
-  File "/Library/Python/2.7/site-packages/gradebook/score.py", line 180, in check
+  File "/Users/user/.local/lib/python2.7/site-packages/gradebook/score.py", line 180, in check
     result = eval(command, g)
   File "<string>", line 1, in <module>
+<<<<<<< HEAD
   File "/Library/Python/2.7/site-packages/rpy2-2.5.6-py2.7-macosx-10.10-intel.egg/rpy2/robjects/__init__.py", line 269, in __call__
     res = self.eval(p)
   File "/Library/Python/2.7/site-packages/rpy2-2.5.6-py2.7-macosx-10.10-intel.egg/rpy2/robjects/functions.py", line 170, in __call__
     return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
   File "/Library/Python/2.7/site-packages/rpy2-2.5.6-py2.7-macosx-10.10-intel.egg/rpy2/robjects/functions.py", line 100, in __call__
+=======
+  File "//anaconda/lib/python2.7/site-packages/rpy2/robjects/__init__.py", line 269, in __call__
+    res = self.eval(p)
+  File "//anaconda/lib/python2.7/site-packages/rpy2/robjects/functions.py", line 170, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "//anaconda/lib/python2.7/site-packages/rpy2/robjects/functions.py", line 100, in __call__
+>>>>>>> 89dfbbbcd14b4376be7284ed3c35e05799bd9228
     res = super(Function, self).__call__(*new_args, **new_kwargs)
 RRuntimeError: Error in all.equal(family2, sol$family2) : object 'family2' not found
 
 ERROR:root:Traceback (most recent call last):
-  File "/Library/Python/2.7/site-packages/gradebook/score.py", line 180, in check
+  File "/Users/user/.local/lib/python2.7/site-packages/gradebook/score.py", line 180, in check
     result = eval(command, g)
   File "<string>", line 1, in <module>
+<<<<<<< HEAD
   File "/Library/Python/2.7/site-packages/rpy2-2.5.6-py2.7-macosx-10.10-intel.egg/rpy2/robjects/__init__.py", line 269, in __call__
     res = self.eval(p)
   File "/Library/Python/2.7/site-packages/rpy2-2.5.6-py2.7-macosx-10.10-intel.egg/rpy2/robjects/functions.py", line 170, in __call__
     return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
   File "/Library/Python/2.7/site-packages/rpy2-2.5.6-py2.7-macosx-10.10-intel.egg/rpy2/robjects/functions.py", line 100, in __call__
+=======
+  File "//anaconda/lib/python2.7/site-packages/rpy2/robjects/__init__.py", line 269, in __call__
+    res = self.eval(p)
+  File "//anaconda/lib/python2.7/site-packages/rpy2/robjects/functions.py", line 170, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "//anaconda/lib/python2.7/site-packages/rpy2/robjects/functions.py", line 100, in __call__
+>>>>>>> 89dfbbbcd14b4376be7284ed3c35e05799bd9228
     res = super(Function, self).__call__(*new_args, **new_kwargs)
 RRuntimeError: Error in all.equal(family2, sol$family2) : object 'family2' not found
 
 Traceback (most recent call last):
-  File "/Library/Python/2.7/site-packages/gradebook/score.py", line 180, in check
+  File "/Users/user/.local/lib/python2.7/site-packages/gradebook/score.py", line 180, in check
     result = eval(command, g)
   File "<string>", line 1, in <module>
+<<<<<<< HEAD
   File "/Library/Python/2.7/site-packages/rpy2-2.5.6-py2.7-macosx-10.10-intel.egg/rpy2/robjects/__init__.py", line 269, in __call__
     res = self.eval(p)
   File "/Library/Python/2.7/site-packages/rpy2-2.5.6-py2.7-macosx-10.10-intel.egg/rpy2/robjects/functions.py", line 170, in __call__
     return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
   File "/Library/Python/2.7/site-packages/rpy2-2.5.6-py2.7-macosx-10.10-intel.egg/rpy2/robjects/functions.py", line 100, in __call__
+=======
+  File "//anaconda/lib/python2.7/site-packages/rpy2/robjects/__init__.py", line 269, in __call__
+    res = self.eval(p)
+  File "//anaconda/lib/python2.7/site-packages/rpy2/robjects/functions.py", line 170, in __call__
+    return super(SignatureTranslatedFunction, self).__call__(*args, **kwargs)
+  File "//anaconda/lib/python2.7/site-packages/rpy2/robjects/functions.py", line 100, in __call__
+>>>>>>> 89dfbbbcd14b4376be7284ed3c35e05799bd9228
     res = super(Function, self).__call__(*new_args, **new_kwargs)
 RRuntimeError: Error in all.equal(family2, sol$family2) : object 'family2' not found
 

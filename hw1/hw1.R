@@ -86,7 +86,11 @@ family.young<-subset(family,age<40)
 
 # Create a new data frame 
 # << family.30y68i >> : a data frame, subset of family, with only people *over* 30, *shorter* than 68 in
+<<<<<<< HEAD
 family.30y68i<-subset(family,height<68 & age>30)
+=======
+family.30y68i<-subset(family,height<68,age>30)
+>>>>>>> 89dfbbbcd14b4376be7284ed3c35e05799bd9228
 
 # Formula for BMI : BMI = (weight in lbs) / (height in in)^2 * 703
 # Note: the dataframe has weight in lbs and height in in as required.
@@ -96,7 +100,13 @@ bmi<-family$weight/(family$height^2)*703
 
 # Create a new data frame
 # << family2 >> : family with an added column of BMI, with column name bmi
+<<<<<<< HEAD
 family$bmi<-(family$weight/(family$height)^2)*703
 
+=======
+>>>>>>> 89dfbbbcd14b4376be7284ed3c35e05799bd9228
 
+#family$bmi<-(family$weight/(family$hiehgt)^2)*703
+#There is a typo on this line it should height not hiehgt
+#To avoid this run source on your hw before submitting it.
 ##################################################################################

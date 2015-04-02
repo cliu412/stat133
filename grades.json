@@ -19,5 +19,6 @@
     "login": "cliu412", 
     "name": "Christopher Liu", 
     "status": "enrolled", 
-    "url": "git@github.com:cliu412/stat133.git"
+    "url": "git@github.com:cliu412/stat133.git", 
+    "section": "lab4"
 }

@@ -145,7 +145,7 @@ sd.cache <- sapply(Cache500,sd)
 # the mean of Cache500[[i]] IF it has 50 or more entries.
 # NA IF Cache500[[i]] has less than 50 entries.
 
-#mean.long.cache <- <your code here>
+mean.long.cache <- 
 
 
 

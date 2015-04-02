@@ -135,7 +135,7 @@ mean.cache <- sapply(Cache500,mean)
 # Create [sd.cache], a vector of length 500 where each entry is the sd
 # of the corresponding element of the list Cache500
 
-#sd.cache <- <your code here>
+sd.cache <- sapply(Cache500,sd)
   
 
 

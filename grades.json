@@ -4,14 +4,14 @@
     "grades": {
         "hw1": {
             "note": "", 
-            "hash": "57cbe6e8da6e601138a6a2f5a472858afc67c1b0", 
-            "earned": 0, 
+            "hash": "a23b945e8addd1e1e4ac20cb853bcc3637540f99", 
+            "earned": 18, 
             "possible": 20, 
             "penalty": 0, 
             "parts": {
                 "hw1": {
                     "possible": 20, 
-                    "earned": 0
+                    "earned": 18
                 }
             }
         }
@@ -19,6 +19,5 @@
     "login": "cliu412", 
     "name": "Christopher Liu", 
     "status": "enrolled", 
-    "url": "git@github.com:cliu412/stat133.git", 
-    "section": "lab4"
+    "url": "git@github.com:cliu412/stat133.git"
 }

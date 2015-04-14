@@ -14,10 +14,24 @@
                     "earned": 18
                 }
             }
+        }, 
+        "hw4": {
+            "note": "", 
+            "hash": "369cc3f1a07b891fb256875de94cb66da340b625", 
+            "earned": 20, 
+            "possible": 20, 
+            "penalty": 0, 
+            "parts": {
+                "hw4": {
+                    "possible": 20, 
+                    "earned": 20
+                }
+            }
         }
     }, 
     "login": "cliu412", 
     "name": "Christopher Liu", 
     "status": "enrolled", 
-    "url": "git@github.com:cliu412/stat133.git"
+    "url": "git@github.com:cliu412/stat133.git", 
+    "section": "lab4"
 }

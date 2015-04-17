@@ -9,7 +9,10 @@
 #   <num.dollar>: an integer indicating how many elements of <chvec> contain the "$"
 #     symbol. For example: numDollarElements(c('dollar', 'd$llar', '$$$')) should return 2
 
-
+numdollarElements <- function(chvec){
+  num.dollar = length(grep("\\$",chvec))
+  return (num.dollar)
+}
 
 # Write a function called prodDigits that compute the product of all (single) digits in
 # a string.  The function should return 0 if there is no digit in the
@@ -19,7 +22,19 @@
 # and return the following
 #   <total>: A single number (the product of all digits in chvec)
 
-
+prodDigits <- function(chvec){
+  browser()
+  list.of.digits <- c()
+  for (i in 1:length(chvec)){
+    if (chvec[[i]] == 0||1||2||3||4||5||6||7||8||9){
+      list.of.digits=c(chvec[i])
+    }
+  }
+  if (length(list.of.digits==0)){
+    return (0)
+  }
+  return (prod(list.of.digits))
+}
 
 # Some test cases:
 # all.equal(prodDigits("1z3p ! 22"), 12)
@@ -35,6 +50,12 @@
 # and return
 #   <herchvec>: The same character vector with the required substitutions.
 
+hisToHer <- function(chvec){
+  new.sentence = gsub("\\<(him)\\>", "her",chvec)
+  new.sentence = gsub("\\<(his)\\>","her",new.sentence)
+  herchvec = gsub("\\<(he)\\>", "she",new.sentence)
+  return (herchvec)
+}
 
 # A test case
 all.equal(
@@ -55,4 +76,9 @@ all.equal(
 #  <letter> The most common letter or letters in the string.
 # For example mostCommonLetter("aabbccccdddd") should return 
 # [1] "c" "d"
+
+mostCommonLetter <- function(chvec){
+  
+}
+
 

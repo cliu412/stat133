@@ -23,7 +23,7 @@ numdollarElements <- function(chvec){
 #   <total>: A single number (the product of all digits in chvec)
 
 prodDigits <- function(chvec){
-  browser()
+  
   list.of.digits <- c()
   for (i in 1:length(chvec)){
     if (chvec[[i]] == 0||1||2||3||4||5||6||7||8||9){

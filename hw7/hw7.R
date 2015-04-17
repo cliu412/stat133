@@ -259,7 +259,7 @@ speechesDF <- data.frame(speechesDF, Year=speechYr, Month=speechMo, Sentences, W
 
 # note that your code will be a few lines...
   
-presidentWordMat <-  
+presidentWordMat <- 
   
 # At the beginning of this file we sourced in a file "computeSJDistance.R"
 # It has the following function:
@@ -332,7 +332,11 @@ plot(hc)
 
 # your plot statements below:
 
-
+plot(speechesDF$year, speechesDF$sent, xlab="Year", ylab="Sentences")
+plot(speechesDF$year, speechesDF$word, xlab="Year", ylab="Words")
+plot(speechesDF$year, speechesDF$char, xlab="Year", ylab="Characters")
+plot(speechesDF$year, speechesDF$char/speechesDF$word, xlab="Year", ylab="average word length")
+plot(speechesDF$year, speechesDF$word/speechesDF$sent, xlab="Year", ylab="average sentence length")
 
 
 

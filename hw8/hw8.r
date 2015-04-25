@@ -52,10 +52,10 @@ oneBoot = function(data, fit = NULL, degree = 1){
   ###  data are either your data (from call to getData)
   ###  OR fit and errors from fit of line to data
   ###  OR fit and errors from fit of quadratic to data  
-  if (fit == NULL) {
-    return  (genBootY(data$x, data$y))
+  if (!is.null(fit)) {
+    return  fitModel(genBootY(data$x, data$y),degree=degree)
   } else {
-    return  (genBootR(fit[[1]], fit[[2]]), degree)
+    return  fitModel(genBootR(fit[[1]], fit[[2]]), degree=degree)
   }
  
   ### Use fitModel to fit a model to this bootstrap Y 

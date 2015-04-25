@@ -13,23 +13,25 @@ getData = function(coefs = c(0, 1, 1), xs = 1:5, dupl = 10,
 
 ### 
 genBootY = function(x, y, rep = TRUE){
-  ### For each unique x value, take a sample of the
-  ### corresponding y values, with replacement.
-  ### Return a vector of random y values the same length as y
-  ### You can assume that the xs are sorted
-  ### Hint use tapply here!
-  
-
+  y.sample.replacement <- tapply(y,x,sample,replace=TRUE)
+  return (y.sample.replacement)
 }
+
+### For each unique x value, take a sample of the
+### corresponding y values, with replacement.
+### Return a vector of random y values the same length as y
+### You can assume that the xs are sorted
+### Hint use tapply here!
 
 genBootR = function(fit, err, rep = TRUE){
-  ### Sample the errors 
-  ### Add the errors to the fit to create a y vector
-  ### Return a vector of y values the same length as fit
-  ### HINT: It can be easier to sample the indices than the values
-  
- 
+ goodbye = sample(err,length(err),replace=FALSE)
+ bonjour = fit + goodbye
+ return (bonjour)
 }
+### Sample the errors 
+### Add the errors to the fit to create a y vector
+### Return a vector of y values the same length as fit
+### HINT: It can be easier to sample the indices than the values
 
 fitModel = function(x, y, degree = 1){
   ### use the lm function to fit a line of a quadratic 
@@ -37,8 +39,12 @@ fitModel = function(x, y, degree = 1){
   ### y and x are numeric vectors of the same length
   ### Return the coefficients as a vector 
   ### HINT: Take a look at the repBoot function to see how to use lm()
-  
- 
+  if (degree == 1){
+    hola <- lm(y~x)
+  } else {
+    hola <- lm(y~x+I(x^2))
+  }
+  coeff <- coefficients(hola)
   return(coeff)
 }
 
@@ -46,7 +52,11 @@ oneBoot = function(data, fit = NULL, degree = 1){
   ###  data are either your data (from call to getData)
   ###  OR fit and errors from fit of line to data
   ###  OR fit and errors from fit of quadratic to data  
-
+  if (fit == NULL) {
+    return  (genBootY(data$x, data$y))
+  } else {
+    return  (genBootR(fit[[1]], fit[[2]]), degree)
+  }
  
   ### Use fitModel to fit a model to this bootstrap Y 
  

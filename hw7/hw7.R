@@ -258,11 +258,12 @@ speechesDF <- data.frame(speechesDF, Year=speechYr, Month=speechMo, Sentences, W
 # and that colum is the sum of all the columns corresponding to speeches make by said president.
 
 # note that your code will be a few lines...
+colnames(wordMat) <- presidents
 unique.presidents = unique(speechesDF$Pres)  
 unique.prez.wordMat = function(name){
-  subset(wordMat,name)
+  colnames(wordMat)==name
 }
-
+lapply(unique.presidents,unique.prez.wordMat)
 presidentWordMat <- matrix()
   
 # At the beginning of this file we sourced in a file "computeSJDistance.R"

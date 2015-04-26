@@ -1,0 +1,5 @@
+no repBoot  -5
+no bootPlot  -4
+wrong implementation of oneBoot  -3
+
+Score: 8/20

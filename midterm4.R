@@ -35,7 +35,7 @@ phrases <- c("dog", "doggy", "den", "good boy", "Really?", "How much?", "Only $8
 
 # Create a vector [text1] that lists the elements in phrases 
 # where the SECOND TO LAST character is "o" (lower case o).
-text1 <- grep("o.{1}\\>.{0}",phrases,value=TRUE)
+text1 <- grep("o.{1}\\>[[:print:]]{0}",phrases,value=TRUE)
 
 # Create a vector [text2] that lists the elements in phrases that
 # START with the letter "d"

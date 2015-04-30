@@ -24,7 +24,7 @@ dice_sum <- function(k=2, B=100){
   dice.rolls <- c(1,2,3,4,5,6)
   results <- c()
   for (i in 1:B){
-    results <- (c(sum(sample(dice.rolls,k,replace=TRUE))))
+    results[i] <- sum(sample(dice.rolls,k,replace=TRUE))
   }
   return (results)
 }

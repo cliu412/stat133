@@ -1,0 +1,11 @@
+y -1
+line 42: l should be list  -1
+line 51: wrong table  -2
+f3 -1
+boxplot  -2
+line 104: use color option  -1
+line 111: wrong plot  -2
+line 124  -3
+line 148  -4
+
+Score: 16/33

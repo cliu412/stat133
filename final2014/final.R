@@ -54,13 +54,13 @@ email.address <- ""
 # [1 pt]
 # Create [x], a numeric vector of length 1000 with 
 # entries: 5, 10, 15, etc.
-x <- <your code here>
+x <- seq(from = 5, to = 5000, by=5)
   
 # [1 pt]
 # Create [y], a logical vector of length 1000 
 # with y[i]=T if x[i] is divisible by 10, otherwise F
 
-  y <- <your code here>
+y <- x %% 10 == 0
   
   
 # [1 pt]
@@ -68,21 +68,22 @@ x <- <your code here>
 # that are drawn from a standard normal distribution (hint: rnorm)
 # *and* stored in increasing order
 set.seed(42)
-z <- <your code here>
+z <- sort(rnorm(111))
   
   
 # [1 pt]
 # Create [v], a numeric vector with :
 # a random permutation of the even numbers from 2 to 222
   set.seed(31415)
-v <- <your code here>
+v <- sample(seq(from = 2, to = 222, by=2),length(seq(from = 2, to = 222, by=2)),
+                                                 replace = F)
 
   
 # [1 pt]
 # Create [w], a random permutation of the numeric values of a deck of cards
 # (i.e. just the numbers 1 through 13 each repeated 4 times)
 set.seed(2718)
-w <- <your code here>
+w <- sample(rep(1:13,4),52,replace=F)
 
   
 # [1 pt]
@@ -90,15 +91,17 @@ w <- <your code here>
 # Exponential random variables (hint: rexp) with rate 3
 # (arrange the values by column, as per default)
 set.seed(344)
-m <- <your code here>
+m <- matrix(data=rexp(100,rate = 3),nrow=10,ncol=10)
 
   
 # [1 pt]
 # Create [l], a list with 12 elements, each a vector of length 100.
 # Each vector of length 100 of Poisson (hint:rpois) random variables with mean 5
   set.seed(71)
-<your code here>
-
+get.values <- function(x){
+  rpois(100,5)
+}
+l <- lapply(1:12,get.values)
 
 # For the next few tasks you will use the data frame family (size 14x5)
 # LEAVE AS IS:
@@ -106,22 +109,24 @@ load("family.rda")
 
 # [1 pt]
 # Create [f1] a subset of family with only women age 50 or over
-f1 <- <your code here>
+f1 <- family[family$age >= 50 & family$gender == "f", ]
 
+
+f1 <- subset(family,family$age>=50 & family$gender == "f")
   
 # [1 pt]
 # Create [f2] a subset of family with only men 6 foot tall or more
-f2 <- <your code here>
-
+f2 <- family[family$height >= 72 & family$gender =="m",]
+f2 <- subset(family,family$height >= 72 & family$gender =="m")
   
 # [1 pt]
 # Create [f3] a subset of family of people whose name starts with T
-f3 <- <your code here>
-  
+f3 <- subset(family,substring(family$name,1,1)=="T")
+f3 <- family[substring(family$name,1,1)=="T",] 
 
 # [1 pt]
 # Create [f4] a subset of family with just the youngest individual (so just one row)
-f4 <- <your code here>
+f4 <- family[family$age==min(family$age),]
 
 
 # for the next two tasks you will use the data frame infants (size 1236x15)
@@ -130,12 +135,12 @@ load("KaiserBabies.rda")
 
 # [2 pt]
 # Create a table [t] of the education level ($ed) of all married ($marital) first time ($parity=1) mothers:
-t <- <your code here>
+t <- table(infants$ed[infants$marital == "Married" & infants$parity == 1])
 
 
 # [2 pt]
 # Calculate [mw], the average birthweight ($bwt) of all babies whose were full term, i.e. gestation equal or more than 259 days.
-mw <- <your code here>
+mw <- mean(na.omit(infants$bwt[infants$gestation>=259]))
   
   
 #################################################################
@@ -149,19 +154,20 @@ mw <- <your code here>
 
 # [2 pts]
 # Make a box plot of Sepal Length by Species (so 3 boxplots in one plot)
-
+boxplot(Sepal.Length ~ Species, data = iris)
 
 
 # [3 pts]
 # Make a scatterplot of petal width (y-axis) versus petal length (x-axis)
 # The axes labels should be "Petal Length" and "Petal Width",
 # Color the plotting symbol by Species (any 3 colors)
-
+plot (iris$Petal.Length, iris$Petal.Width,ylab="Petal Width",xlab="Petal Length",col=iris$Species)
 
 # [3 pt]
 # Make a scatterplot of ( sepal length / petal length) as a function of index (order)
 # Color the plotting symbol by Species (any 3 colors)
-
+sepal.divided.petal <- iris$Sepal.Length/iris$Petal.Length
+plot(1:nrow(iris),sepal.divided.petal, col=iris$Species, xlab="order",ylab="Sepal Length / Petal Length")
 
 ##### We will now use the infant birth data again (data frame infants)
 
@@ -170,14 +176,14 @@ mw <- <your code here>
 # The plotting symbol should be a red star (*)
 # Put on custom made x-axis and y-axis labels that fully describe the variables
 # Add a vertical line at gestation=259 (full length pregnancy)
-
-
+plot(infants$gestation,infants$bwt,pch=8,col="red")
+abline(v=259)
 # [6 pts]
 # Make a histogram of mother's age (age) and superimpose on it a _blue_ density plot (same variable)
 # Note that the y-axis of the histogram and the density have to be the same...
 # Add x-axis labels
-
-
+hist(infants$age, prob=T,xlab="Mother's Age")
+lines(density(infants$age, na.rm=T), col="blue")
 #################################################################
 ##### PART III : apply and by statements [15 pts]
 
@@ -189,36 +195,47 @@ load("Cache500.rda")
 # [3 pts]
 # Create [first.cache], a vector where each entry is the _first_ element of the
 # corresponding vector in the list Cache500
-
-first.cache <- <your code here>
+get.first <- function(x){
+  x[1]
+}
+first.cache <- sapply(Cache500,get.first)
 
 # [3 pts]
 # Create [mean.cache], a vector of length 500 where each entry is the mean 
 # of the corresponding element of the list Cache500
 
-mean.cache <- <your code here>
+mean.cache <- sapply(Cache500,mean)
 
 # [2 pts]
 # Create [sd.cache], a vector of length 500 where each entry is the sd
 # of the corresponding element of the list Cache500
 
-sd.cache <- <your code here>
+sd.cache <- sapply(Cache500,sd)
 
 # [4 pts]
 # Create [mean.long.cache], a vector where 
 # mean.long.cache[i] is:
 # the mean of Cache500[[i]] IF it has 50 or more entries.
 # NA IF Cache500[[i]] has less than 50 entries.
-
-mean.long.cache <- <your code here>
+check.length <- function(x){
+  if (length(x) > 50){
+    return (mean(x))
+  }
+  else
+    return (NA)
+}
+mean.long.cache <- sapply(Cache500,check.length)
 
 # Consider again the iris dataset
 # [3 pts]
 # Create a variable [max.petal.width] _a numeric vector of length 3_
 # that has the maximum petal length for each iris species.
-
-max.petal.width <- <your code here>
-
+setosa.petal.length <- iris$Petal.Length[iris$Species=="setosa"] 
+versicolor.petal.length <- iris$Petal.Length[iris$Species=="versicolor"]
+virginica.petal.length <- iris$Petal.Length[iris$Species=="virginica"]
+max.petal.width <- c(max(setosa.petal.length),max(versicolor.petal.length),
+                     max(virginica.petal.length))
+max.petal.width <- as.vector(by(iris$Petal.Length, iris$Species, max))
 #################################################################
 ##### PART IV : functions [20 pts]
 
@@ -231,7 +248,7 @@ max.petal.width <- <your code here>
 # -- what was the first column is now row names.
 
 # Example, make a small 2x4 matrix, test:
-# test <- matrix(c(1, 5, 3, 8, 2, 5, 7, 9), ncol=4, byrow=T)
+test <- matrix(c(1, 5, 3, 8, 2, 5, 7, 9), ncol=4, byrow=T)
 # > test
 # [,1] [,2] [,3] [,4]
 # [1,]    1    5    3    8
@@ -242,9 +259,10 @@ max.petal.width <- <your code here>
 # 1    5    3    8
 # 2    5    7    9
 
-firstColToNames <- function(  ){
-  <your code here>
-  
+firstColToNames <- function(x){
+  first.column <- x[,1]
+  x <- matrix(x[,-1],nrow = 2, dimnames = list(c(first.column)))  
+  return (x)
 }
 
     
@@ -257,7 +275,10 @@ firstColToNames <- function(  ){
 # The function should ignore NA values (i.e. if a matrix has an entry that is NA)
 
 longerRange <- function(m1, m2){
-  <your code here>  
+  if ((max(m1,na.rm=T)-min(m1,na.rm=T)) >= max(m2,na.rm=T)-min(m2,na.rm=T)){
+    return (1)
+  }
+  else return (2)
 }
 
 # [8 pts]
@@ -275,8 +296,12 @@ longerRange <- function(m1, m2){
 # so e.g. 30 F=-1.11 C and 30 C = 86 F
 
 TempConv <- function(t, scale){
-  <your code here>
-  
+  if (scale == "F"){
+    return (paste((t - 32) * 5/9,"C",sep=" "))
+  }
+  if (scale == "C"){
+    return (paste((t * 9/5 + 32),"F",sep=" "))
+  }
 }
 
 #################################################################
@@ -299,7 +324,11 @@ set.seed(123456)
 # and so on.
 
 dice_sum <- function(k, B){
-
+  dice.rolls <- c()
+  for (i in 1:B){
+    dice.rolls <- c(dice.rolls, sum(sample(1:6,k,replace=T)))
+  }
+  return (dice.rolls)
 }
 
 # [5 pts]
@@ -333,12 +362,23 @@ dice_sum <- function(k, B){
 par(mfrow=c(2,2))
 #----------------------
 
-ave.diceRoll <- <initialize>
-sd.diceRoll <- <initialize>
+ave.diceRoll <- c()
+sd.diceRoll <- c()
 Bvec <- c(20, 100, 1000, 5000)
 
-<your code here to run simulation>
+for (i in 1:4){
+  results.of.rolls <- dice_sum(k=2,Bvec[i])
+  ave.diceRoll <- c(ave.diceRoll,mean(results.of.rolls))
+  sd.diceRoll <- c(sd.diceRoll,sd(results.of.rolls))
+  hist (results.of.rolls,xlab="sum of dice roll",main = paste("Histogram for B=",Bvec))
+}
 
+for(i in 1:4){
+  tmp <- dice_sum(k=2, B=Bvec[i])
+  ave.diceRoll[i] <- mean(tmp)
+  sd.diceRoll[i] <- sd(tmp)
+  hist(tmp, xlab="sum of dice roll", main=paste("Histogram for B=", Bvec[i]))
+}
 # STOP: did you remember to put in the title and axis label on the histograms?
 
 #################################################################
@@ -349,32 +389,38 @@ phrases <- c("coat", "cat", "ct", "mat", "Sat!", "Now?", "match", "How much? $10
 # [2 pts]
 # Create a vector [text1] that lists the elements in phrases that have 
 # a match to "at", anywhere 
-text1 <- <your code here>
+text1 <- grep("at",phrases,value=T)
 
 # [2 pts]
 # Create a vector [text2] that lists the elements in phrases that have 
 # a match to "at", _at the end of the phrase_ 
-text2 <- <your code here>
+text2 <- grep("at\\>",phrases,value=T)
 
 # [4 pts]
 # Create a vector [text3] that lists the elements in phrases that have 
 # a match to any multiple of "at", _two or more times_ (atat" or "atatat" etc.)
 # and anything before or after that match
-text3 <- <your code here>
+text3 <- grep(".+((at){2,}).+",phrases,value=T)
+text3 <- grep(".+((at){2,}).+", phrases)
 
 # [3 pts]
 # Create a vector [tests] that is of length 200 and has the entries
 # "test1", "test2", ..., "test200"
 
-tests <- <your code here>
+tests <- paste("test",1:200,sep="")
 
 # [3 pts]
 # Take the vector [tests] from above and create a character string
 # [tests.all] (so a vector of length 1)
 # that stores the entries of [tests] as one long string
 # i.e. tests.all should be "test1 test2 test3 ... test200"
-tests.all <- <your code here>
-
+add.vector<-function(x){
+  newtest <- c()
+  newtest<-c(newtest,x)
+  return (newtest)
+}
+tests.all <- sapply(tests,add.vector)
+tests.all<-paste(tests,collapse=" ")
 # [6 pts]
 # Start with [minchin] which is a character string, create 
 # a _vector_ (not list) [minchin.split] which 
@@ -384,7 +430,7 @@ tests.all <- <your code here>
 
 minchin <- "And try as hard as I like, A small crack appears In my diplomacy-dike. By definition, I begin, Alternative Medicine, I continue Has either not been proved to work, Or been proved not to work. You know what they call alternative medicine That's been proved to work? Medicine."
 
-minchin.split <- <your code here>
+minchin.split <- unlist(strsplit(tolower(minchin),"[[:space:]]"))
   
   
 #################################################################

@@ -201,7 +201,7 @@ abline(v=2.1)
 par(mfrow=c(1,2))
 plot(WorldBank$fertility[WorldBank$year==1960],WorldBank$life.expectancy[WorldBank$year==1960],pch='.',col=WorldBank$region,
      ylab="Life Expectancy (years)",xlab="Fertility Rate")
-plot(WorldBank$fertility[WorldBank$year==2014],WorldBank$life.expectancy[WorldBank$year==2014],pch='.',col=WorldBank$region,
+plot(WorldBank$fertility[WorldBank$year==2013],WorldBank$life.expectancy[WorldBank$year==2013],pch='.',col=WorldBank$region,
      ylab="Life Expectancy (years)",xlab="Fertility Rate")
 # [4 pts]
 # Make a histogram of GDP only for observations where the lending rating is "IDA"
@@ -240,10 +240,10 @@ max.diff.rain <- sapply(sapply(sapply(rain,diff),abs),max)
 # number of rain days (i.e. rain > 0) as a function of total days
 is.positive <- function(x){
   for (i in 1:length(x)){
-    if (x[i]>0){
-      return(x)
-    }
-    else x <- x[-x[i]]
+    #if (x[i]>0){
+    #  return(x)
+    #}
+    #else x <- x[-x[i]] # Edited by Andy, caused error
   }
 }
 prop.rain <- sapply(rain,is.positive)
@@ -440,7 +440,7 @@ match1 <- grep("A.T|G.T",dna)
 multiple.of.3 <- function(x){
   
   if(length(x)%%3==0){
-    temp <- 
+    #temp <- # Edited by Andy, caused error
   }
 }
 dna2 <- sapply(dna,multiple.of.3)

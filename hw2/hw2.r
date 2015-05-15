@@ -51,7 +51,8 @@
 # the hw3 directory in the file WR1500MeterMen.rda.
 
 # load the data
-load("C:/Users/Christopher/src/stat133/assignments/hw2/WR1500MeterMen.rda")
+# load("C:/Users/Christopher/src/stat133/assignments/hw2/WR1500MeterMen.rda")
+load("WR1500MeterMen.rda")
 # The name of the object loaded is wr1500m
 # The time (in the column "times") in these data are recorded in seconds, 
 # and they are seconds over 3 minutes. 
@@ -173,7 +174,8 @@ text(1998, 250,labels = wr1500m$athlete[wr1500m$new_year == wr_year1998],
 # It can be loaded into R with
 
 # load( your code here )
-load("C:/Users/Christopher/src/stat133/assignments/hw2/SummerOlympics2012Ctry.rda")
+# load("C:/Users/Christopher/src/stat133/assignments/hw2/SummerOlympics2012Ctry.rda")
+load("SummerOlympics2012Ctry.rda")
 
 #Q6 Take a look at the variables in this data frame.
 # What kind of variable is GDP and population?
@@ -315,7 +317,8 @@ symbols(wonMedal$longitude,wonMedal$latitude,circles=sqrt(wonMedal$Total)/1.2,ad
 # and contains information about every athlete who competed 
 # in the Olympics.
 
-load("C:/Users/Christopher/src/stat133/assignments/hw2/London2012ALL_ATHLETES.rda")
+# load("C:/Users/Christopher/src/stat133/assignments/hw2/London2012ALL_ATHLETES.rda")
+load("London2012ALL_ATHLETES.rda")
 
 # There is one observation for each athlete. 
 # (Actually, about 20 athletes have two records if they

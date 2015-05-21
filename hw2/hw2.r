@@ -223,7 +223,8 @@ symbols(log(SO2012Ctry$pop), log(SO2012Ctry$GDP_per_person),
 # Then add the non-medal countries to the plot using the "." 
 # plotting character.
 with(SO2012Ctry[SO2012Ctry$Total > 0, ], 
-     symbols(log(pop), log(GDP_per_person), xlab=xlab, ylab=ylab, main=main,
+     symbols(log(pop), log(GDP_per_person),
+             #xlab=xlab, ylab=ylab, main=main,
              circles= sqrt(Total)/40, inches = FALSE))
 
 with(SO2012Ctry[SO2012Ctry$Total == 0, ], 
@@ -238,7 +239,8 @@ ylab = "Logarithm of Country's Population"
 main = "Top Countries: Total Medals"
 
 with(SO2012Ctry[SO2012Ctry$Total > 0, ], 
-     symbols(log(pop), log(GDP_per_person), xlab=xlab, ylab=ylab, main=main,
+     symbols(log(pop), log(GDP_per_person),
+             #xlab=xlab, ylab=ylab, main=main,
              circles= sqrt(Total)/40, inches = FALSE))
 
 with(SO2012Ctry[SO2012Ctry$Total == 0, ], 

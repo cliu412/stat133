@@ -387,10 +387,12 @@ NumJackpot <- function(k, B){
 
 # For B = 5000 and each value of k = 10000, 50000, 100000, 500000
 # Plot a histogram of the output from NumJackpot (i.e. four histograms)
-
+# inga
 kvec <- c(10000, 50000, 100000, 500000)
+kvec <- c(100, 500, 1000, 5000)
 for (i in 1:4){
-  hist(NumJackpot(k=kvec[i],B=5000))
+#  hist(NumJackpot(k=kvec[i],B=5000))
+  hist(NumJackpot(k=kvec[i],B=100))
 }
 #################################################################
 ##### PART VI : string manipulation and regular expressions [20 pts]
